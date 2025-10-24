@@ -4,9 +4,7 @@
 }
 
 .detail-header {
-  background-color: var(--bg-secondary);
   padding: 16px;
-  border-bottom: 1px solid var(--border-color);
   position: sticky;
   top: 0;
   z-index: 10;
@@ -15,14 +13,13 @@
 .back-button {
   display: flex;
   align-items: center;
-  gap: 8px;
+  justify-content: center;
   background: none;
   border: none;
-  color: var(--primary-color);
-  font-size: 16px;
-  font-weight: 600;
+  color: #6366f1;
+  font-size: 36px;
   cursor: pointer;
-  padding: 8px 0;
+  padding: 0;
   transition: opacity 0.2s ease;
 }
 
@@ -32,10 +29,6 @@
 
 .back-button:active {
   opacity: 0.5;
-}
-
-.back-arrow {
-  font-size: 20px;
 }
 
 .detail-title {
@@ -82,12 +75,50 @@
 }
 
 .detail-amount-card {
-  background-color: var(--bg-secondary);
-  border-radius: 16px;
   padding: 24px;
   text-align: center;
   margin-bottom: 24px;
-  box-shadow: var(--shadow-sm);
+}
+
+.status-total-card {
+  background-color: var(--bg-secondary);
+  padding: 16px;
+  border-radius: 12px;
+  margin-bottom: 24px;
+}
+
+.status-text {
+  font-size: 14px;
+  color: var(--text-primary);
+  margin: 0 0 8px 0;
+  font-weight: 500;
+}
+
+.merchant-text {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin: 0 0 16px 0;
+  font-weight: 400;
+}
+
+.total-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-color);
+}
+
+.total-label {
+  font-size: 16px;
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.total-amount {
+  font-size: 16px;
+  color: var(--text-primary);
+  font-weight: 600;
 }
 
 .amount-label {
@@ -102,7 +133,7 @@
 .detail-amount {
   font-size: 48px;
   font-weight: 700;
-  margin: 0;
+  margin: 0 0 12px 0;
   letter-spacing: -1px;
   color: var(--text-primary);
 }
@@ -113,6 +144,20 @@
 
 .detail-amount.debit {
   color: var(--text-primary);
+}
+
+.detail-company-name {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin: 0 0 8px 0;
+}
+
+.detail-datetime {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-secondary);
+  margin: 0;
 }
 
 .detail-info-section {
