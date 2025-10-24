@@ -12,13 +12,11 @@ export interface Transaction {
 
 export interface WalletData {
   cardBalance: number;
-  dailyPoints: number;
   paymentsDue: boolean;
 }
 
 export const walletData: WalletData = {
   cardBalance: 2458.75,
-  dailyPoints: 125,
   paymentsDue: false,
 };
 

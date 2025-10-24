@@ -1,3 +1,5 @@
+import { POINTS_THRESHOLD } from '../constants';
+
 export const calculateDailyPoints = (): number => {
   const today = new Date();
   const month = today.getMonth(); // 0-11
@@ -66,8 +68,8 @@ export const calculateDailyPoints = (): number => {
 };
 
 export const formatPoints = (points: number): string => {
-  if (points > 1000) {
-    return `${Math.round(points / 1000)}K`;
+  if (points > POINTS_THRESHOLD) {
+    return `${Math.round(points / POINTS_THRESHOLD)}K`;
   }
   return points.toString();
 };
