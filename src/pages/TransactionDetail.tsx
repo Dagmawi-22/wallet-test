@@ -23,16 +23,8 @@ function TransactionDetail() {
     );
   }
 
-  const getCategoryIcon = (category: string) => {
-    const icons: { [key: string]: string } = {
-      'Food & Dining': '🍴',
-      'Income': '💰',
-      'Shopping': '🛍️',
-      'Transportation': '🚗',
-      'Entertainment': '🎬',
-      'Health & Fitness': '💪',
-    };
-    return icons[category] || '💳';
+  const getCategoryIcon = () => {
+    return <img src="/apple.png" alt="Apple" className="detail-icon-img" />;
   };
 
   const formatFullDate = (dateString: string) => {

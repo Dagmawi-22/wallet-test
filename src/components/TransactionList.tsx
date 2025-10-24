@@ -29,16 +29,8 @@ function TransactionList({ transactions }: TransactionListProps) {
     return date.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
   };
 
-  const getCategoryIcon = (category: string) => {
-    const icons: { [key: string]: string } = {
-      'Food & Dining': '🍴',
-      'Income': '💰',
-      'Shopping': '🛍️',
-      'Transportation': '🚗',
-      'Entertainment': '🎬',
-      'Health & Fitness': '💪',
-    };
-    return icons[category] || '💳';
+  const getCategoryIcon = () => {
+    return <img src="/apple.png" alt="Apple" className="icon-img" />;
   };
 
   const handleTransactionClick = (id: string) => {
@@ -49,7 +41,6 @@ function TransactionList({ transactions }: TransactionListProps) {
     <div className="transaction-list">
       <div className="list-header">
         <h3 className="list-title">Latest Transactions</h3>
-        <span className="transaction-count">{transactions.length}</span>
       </div>
 
       <div className="transactions">
@@ -66,10 +57,10 @@ function TransactionList({ transactions }: TransactionListProps) {
             <div className="transaction-details">
               <div className="transaction-main">
                 <h4 className="transaction-title">{transaction.title}</h4>
-                <p className="transaction-category">{transaction.category}</p>
+                <p className="transaction-category">{transaction.description}</p>
               </div>
               <p className="transaction-time">
-                {formatDate(transaction.date)} • {formatTime(transaction.date)}
+                {formatDate(transaction.date)}
               </p>
             </div>
 
@@ -82,10 +73,10 @@ function TransactionList({ transactions }: TransactionListProps) {
                 {transaction.type === 'credit' ? '+' : '-'}$
                 {transaction.amount.toFixed(2)}
               </p>
-              {transaction.status === 'pending' && (
-                <span className="status-badge pending">Pending</span>
-              )}
+              <span className="transaction-percentage">2%</span>
             </div>
+
+            <div className="chevron-icon">›</div>
           </div>
         ))}
       </div>

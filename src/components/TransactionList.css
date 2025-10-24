@@ -12,7 +12,7 @@
 
 .list-title {
   font-size: 18px;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--text-primary);
   margin: 0;
 }
@@ -57,13 +57,14 @@
 .transaction-icon {
   width: 48px;
   height: 48px;
-  border-radius: 12px;
-  background-color: var(--bg-primary);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 24px;
   flex-shrink: 0;
+}
+
+.icon-img {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  border-radius: 12px;
 }
 
 .transaction-details {
@@ -73,6 +74,8 @@
 
 .transaction-main {
   margin-bottom: 4px;
+  min-width: 0;
+  width: 100%;
 }
 
 .transaction-title {
@@ -89,6 +92,9 @@
   font-size: 13px;
   color: var(--text-secondary);
   margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .transaction-time {
@@ -109,14 +115,32 @@
   font-size: 16px;
   font-weight: 700;
   margin: 0;
+  color: var(--text-primary);
 }
 
 .transaction-amount.credit {
-  color: var(--success-color);
+  color: var(--text-primary);
 }
 
 .transaction-amount.debit {
   color: var(--text-primary);
+}
+
+.transaction-percentage {
+  font-size: 11px;
+  font-weight: 500;
+  color: #374151;
+  background-color: #e5e7eb;
+  padding: 2px 8px;
+  border-radius: 8px;
+}
+
+.chevron-icon {
+  font-size: 28px;
+  color: #d1d5db;
+  display: flex;
+  align-items: center;
+  margin-left: 8px;
 }
 
 .status-badge {
