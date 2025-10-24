@@ -1,5 +1,6 @@
 .wallet-card {
   padding: 16px;
+  flex-shrink: 0;
 }
 
 .wallet-header {

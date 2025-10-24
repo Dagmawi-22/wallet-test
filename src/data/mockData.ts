@@ -12,20 +12,18 @@ export interface Transaction {
 
 export interface WalletData {
   cardBalance: number;
-  dailyPoints: number;
   paymentsDue: boolean;
 }
 
 export const walletData: WalletData = {
   cardBalance: 2458.75,
-  dailyPoints: 125,
   paymentsDue: false,
 };
 
 export const transactions: Transaction[] = [
   {
     id: '1',
-    title: 'Starbucks Coffee',
+    title: 'Apple',
     category: 'Food & Dining',
     amount: 5.75,
     date: '2025-10-24T09:30:00',
@@ -36,40 +34,40 @@ export const transactions: Transaction[] = [
   },
   {
     id: '2',
-    title: 'Salary Deposit',
+    title: 'Apple',
     category: 'Income',
     amount: 3500.00,
     date: '2025-10-23T08:00:00',
     type: 'credit',
     merchant: 'ABC Company Inc',
     status: 'completed',
-    description: 'Monthly salary payment',
+    description: 'Monthly salary payment for October',
   },
   {
     id: '3',
-    title: 'Amazon Purchase',
+    title: 'IKEA',
     category: 'Shopping',
     amount: 89.99,
     date: '2025-10-22T14:20:00',
     type: 'debit',
-    merchant: 'Amazon',
+    merchant: 'IKEA',
     status: 'completed',
-    description: 'Wireless headphones and USB cable',
+    description: 'Furniture and home decor items',
   },
   {
     id: '4',
-    title: 'Uber Ride',
+    title: 'IKEA',
     category: 'Transportation',
     amount: 15.50,
     date: '2025-10-21T18:45:00',
     type: 'debit',
-    merchant: 'Uber',
+    merchant: 'IKEA',
     status: 'completed',
-    description: 'Ride from downtown to home',
+    description: 'Home office desk and chair',
   },
   {
     id: '5',
-    title: 'Netflix Subscription',
+    title: 'Apple',
     category: 'Entertainment',
     amount: 15.99,
     date: '2025-10-20T00:01:00',
@@ -80,18 +78,18 @@ export const transactions: Transaction[] = [
   },
   {
     id: '6',
-    title: 'Grocery Store',
+    title: 'Apple',
     category: 'Food & Dining',
     amount: 127.45,
     date: '2025-10-19T16:30:00',
     type: 'debit',
     merchant: 'Whole Foods',
     status: 'completed',
-    description: 'Weekly grocery shopping',
+    description: 'Weekly grocery shopping at the new Whole Foods Market downtown',
   },
   {
     id: '7',
-    title: 'Gym Membership',
+    title: 'Apple',
     category: 'Health & Fitness',
     amount: 49.99,
     date: '2025-10-18T07:00:00',
@@ -102,13 +100,13 @@ export const transactions: Transaction[] = [
   },
   {
     id: '8',
-    title: 'Freelance Payment',
+    title: 'Apple',
     category: 'Income',
     amount: 850.00,
     date: '2025-10-17T10:15:00',
     type: 'credit',
     merchant: 'XYZ Client',
     status: 'completed',
-    description: 'Website development project',
+    description: 'Website development project payment for the React app',
   },
 ];

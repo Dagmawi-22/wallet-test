@@ -1,5 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { Transaction } from '../data/mockData';
+import { formatDate } from '../utils/dateFormatter';
+import { getCompanyIcon } from '../utils/iconHelper';
 import './TransactionList.css';
 
 interface TransactionListProps {
@@ -9,38 +11,6 @@ interface TransactionListProps {
 function TransactionList({ transactions }: TransactionListProps) {
   const navigate = useNavigate();
 
-  const formatDate = (dateString: string) => {
-    const date = new Date(dateString);
-    const today = new Date();
-    const yesterday = new Date(today);
-    yesterday.setDate(yesterday.getDate() - 1);
-
-    if (date.toDateString() === today.toDateString()) {
-      return 'Today';
-    } else if (date.toDateString() === yesterday.toDateString()) {
-      return 'Yesterday';
-    } else {
-      return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
-    }
-  };
-
-  const formatTime = (dateString: string) => {
-    const date = new Date(dateString);
-    return date.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
-  };
-
-  const getCategoryIcon = (category: string) => {
-    const icons: { [key: string]: string } = {
-      'Food & Dining': '🍴',
-      'Income': '💰',
-      'Shopping': '🛍️',
-      'Transportation': '🚗',
-      'Entertainment': '🎬',
-      'Health & Fitness': '💪',
-    };
-    return icons[category] || '💳';
-  };
-
   const handleTransactionClick = (id: string) => {
     navigate(`/transaction/${id}`);
   };
@@ -49,7 +19,6 @@ function TransactionList({ transactions }: TransactionListProps) {
     <div className="transaction-list">
       <div className="list-header">
         <h3 className="list-title">Latest Transactions</h3>
-        <span className="transaction-count">{transactions.length}</span>
       </div>
 
       <div className="transactions">
@@ -60,16 +29,16 @@ function TransactionList({ transactions }: TransactionListProps) {
             onClick={() => handleTransactionClick(transaction.id)}
           >
             <div className="transaction-icon">
-              {getCategoryIcon(transaction.category)}
+              {getCompanyIcon(transaction.title)}
             </div>
 
             <div className="transaction-details">
               <div className="transaction-main">
                 <h4 className="transaction-title">{transaction.title}</h4>
-                <p className="transaction-category">{transaction.category}</p>
+                <p className="transaction-category">{transaction.description}</p>
               </div>
               <p className="transaction-time">
-                {formatDate(transaction.date)} • {formatTime(transaction.date)}
+                {formatDate(transaction.date)}
               </p>
             </div>
 
@@ -82,10 +51,10 @@ function TransactionList({ transactions }: TransactionListProps) {
                 {transaction.type === 'credit' ? '+' : '-'}$
                 {transaction.amount.toFixed(2)}
               </p>
-              {transaction.status === 'pending' && (
-                <span className="status-badge pending">Pending</span>
-              )}
+              <span className="transaction-percentage">2%</span>
             </div>
+
+            <div className="chevron-icon">›</div>
           </div>
         ))}
       </div>

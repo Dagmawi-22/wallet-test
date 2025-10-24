@@ -1,4 +1,5 @@
 import { WalletData } from '../data/mockData';
+import { calculateDailyPoints, formatPoints } from '../utils/pointsCalculator';
 import './WalletCard.css';
 
 interface WalletCardProps {
@@ -6,6 +7,9 @@ interface WalletCardProps {
 }
 
 function WalletCard({ data }: WalletCardProps) {
+  const dailyPoints = calculateDailyPoints();
+  const formattedPoints = formatPoints(dailyPoints);
+
   return (
     <div className="wallet-card">
 
@@ -19,7 +23,7 @@ function WalletCard({ data }: WalletCardProps) {
 
           <div className="card points-card">
             <p className="card-label">Daily Points</p>
-            <h2 className="card-value points-value">{data.dailyPoints} pts</h2>
+            <h2 className="card-value points-value">{formattedPoints}</h2>
           </div>
         </div>
 

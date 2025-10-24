@@ -1,5 +1,7 @@
 import { useNavigate, useParams } from 'react-router-dom';
 import { transactions } from '../data/mockData';
+import { formatDateTime } from '../utils/dateFormatter';
+import { PAYMENT_METHOD, STATUS_APPROVED } from '../constants';
 import './TransactionDetail.css';
 
 function TransactionDetail() {
@@ -13,7 +15,7 @@ function TransactionDetail() {
       <div className="transaction-detail">
         <div className="detail-header">
           <button className="back-button" onClick={() => navigate('/')}>
-            ← Back
+            ‹
           </button>
         </div>
         <div className="not-found">
@@ -23,104 +25,56 @@ function TransactionDetail() {
     );
   }
 
-  const getCategoryIcon = (category: string) => {
-    const icons: { [key: string]: string } = {
-      'Food & Dining': '🍴',
-      'Income': '💰',
-      'Shopping': '🛍️',
-      'Transportation': '🚗',
-      'Entertainment': '🎬',
-      'Health & Fitness': '💪',
-    };
-    return icons[category] || '💳';
-  };
-
-  const formatFullDate = (dateString: string) => {
-    const date = new Date(dateString);
-    return date.toLocaleDateString('en-US', {
-      weekday: 'long',
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
-      hour: 'numeric',
-      minute: '2-digit',
-    });
-  };
-
   return (
     <div className="transaction-detail">
       <div className="detail-header">
         <button className="back-button" onClick={() => navigate('/')}>
-          <span className="back-arrow">←</span>
-          <span>Back</span>
+          ‹
         </button>
-        <h2 className="detail-title">Transaction Details</h2>
       </div>
 
       <div className="detail-content">
-        <div className="detail-icon-section">
-          <div className="detail-icon-large">
-            {getCategoryIcon(transaction.category)}
-          </div>
-          <h3 className="detail-merchant">{transaction.title}</h3>
-          <p className="detail-category">{transaction.category}</p>
-        </div>
-
         <div className="detail-amount-card">
-          <p className="amount-label">Amount</p>
-          <h1
-            className={`detail-amount ${
-              transaction.type === 'credit' ? 'credit' : 'debit'
-            }`}
-          >
-            {transaction.type === 'credit' ? '+' : '-'}$
-            {transaction.amount.toFixed(2)}
+          <h1 className="detail-amount">
+            ${transaction.amount.toFixed(2)}
           </h1>
+          <p className="detail-company-name">{transaction.title}</p>
+          <p className="detail-datetime">{formatDateTime(transaction.date)}</p>
         </div>
 
-        <div className="detail-info-section">
-          <div className="info-row">
-            <span className="info-row-label">Merchant</span>
-            <span className="info-row-value">{transaction.merchant}</span>
-          </div>
-
-          <div className="info-row">
-            <span className="info-row-label">Date & Time</span>
-            <span className="info-row-value">
-              {formatFullDate(transaction.date)}
-            </span>
-          </div>
-
-          <div className="info-row">
-            <span className="info-row-label">Status</span>
-            <span className={`status-pill ${transaction.status}`}>
-              {transaction.status.charAt(0).toUpperCase() +
-                transaction.status.slice(1)}
-            </span>
-          </div>
-
-          <div className="info-row">
-            <span className="info-row-label">Transaction Type</span>
-            <span className="info-row-value">
-              {transaction.type.charAt(0).toUpperCase() +
-                transaction.type.slice(1)}
-            </span>
-          </div>
-
-          <div className="info-row">
-            <span className="info-row-label">Transaction ID</span>
-            <span className="info-row-value transaction-id">
-              #{transaction.id}
-            </span>
+        <div className="status-total-card">
+          <p className="status-text">Status: {STATUS_APPROVED}</p>
+          <p className="merchant-text">{transaction.merchant}</p>
+          <div className="total-row">
+            <span className="total-label">Total</span>
+            <span className="total-amount">${transaction.amount.toFixed(2)}</span>
           </div>
         </div>
 
-        {transaction.description && (
-          <div className="description-section">
-            <h4 className="description-title">Description</h4>
-            <p className="description-text">{transaction.description}</p>
+        <div className="additional-details">
+          <div className="detail-row">
+            <span className="detail-row-label">Payment Method</span>
+            <span className="detail-row-value">{PAYMENT_METHOD}</span>
           </div>
-        )}
+          <div className="detail-row">
+            <span className="detail-row-label">Category</span>
+            <span className="detail-row-value">{transaction.category}</span>
+          </div>
+          <div className="detail-row">
+            <span className="detail-row-label">Transaction ID</span>
+            <span className="detail-row-value">#{transaction.id}</span>
+          </div>
+          <div className="detail-row">
+            <span className="detail-row-label">Type</span>
+            <span className="detail-row-value">{transaction.type === 'credit' ? 'Credit' : 'Debit'}</span>
+          </div>
+          {transaction.description && (
+            <div className="detail-row description-row">
+              <span className="detail-row-label">Description</span>
+              <span className="detail-row-value">{transaction.description}</span>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
