@@ -1,94 +1,101 @@
 .wallet-card {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  border-radius: 20px;
-  padding: 24px;
-  color: white;
-  margin: 16px;
-  box-shadow: var(--shadow-lg);
+  padding: 16px;
 }
 
 .wallet-header {
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 
 .wallet-title {
-  font-size: 16px;
-  font-weight: 500;
-  opacity: 0.9;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-primary);
   margin: 0;
 }
 
-.balance-section {
-  margin-bottom: 24px;
-}
-
-.balance-label {
-  font-size: 14px;
-  opacity: 0.8;
-  margin-bottom: 8px;
-}
-
-.balance-amount {
-  font-size: 36px;
-  font-weight: 700;
-  margin: 0;
-  letter-spacing: -0.5px;
-}
-
-.wallet-info {
+.cards-container {
   display: flex;
-  gap: 16px;
+  gap: 12px;
 }
 
-.info-item {
+.left-cards {
   flex: 1;
   display: flex;
-  align-items: center;
+  flex-direction: column;
   gap: 12px;
-  background-color: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(10px);
-  border-radius: 12px;
-  padding: 12px;
 }
 
-.info-icon {
+.right-cards {
+  flex: 1;
+}
+
+.card {
+  background-color: var(--bg-secondary);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-color);
+}
+
+.card-label {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin: 0 0 8px 0;
+  font-weight: 900;
+}
+
+.available-text {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin: 8px 0 0 0;
+  font-weight: 400;
+}
+
+.card-value {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.balance-value {
+  color: var(--text-primary);
+}
+
+.points-value {
+  color: var(--text-secondary);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.payment-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.payment-description {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.4;
+  flex: 1;
+}
+
+.payment-check-icon {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
   width: 36px;
   height: 36px;
-  border-radius: 10px;
+  border-radius: 50%;
+  background-color: #e5e7eb;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 18px;
-}
-
-.points-icon {
-  background-color: rgba(255, 215, 0, 0.2);
-}
-
-.payment-icon {
-  background-color: rgba(16, 185, 129, 0.2);
-}
-
-.info-content {
-  flex: 1;
-  min-width: 0;
-}
-
-.info-label {
-  font-size: 12px;
-  opacity: 0.8;
-  margin-bottom: 4px;
-}
-
-.info-value {
-  font-size: 14px;
-  font-weight: 600;
-  margin: 0;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.no-payments {
-  color: #d1fae5;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
 }

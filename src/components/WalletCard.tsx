@@ -8,31 +8,30 @@ interface WalletCardProps {
 function WalletCard({ data }: WalletCardProps) {
   return (
     <div className="wallet-card">
-      <div className="wallet-header">
-        <h1 className="wallet-title">My Wallet</h1>
-      </div>
 
-      <div className="balance-section">
-        <p className="balance-label">Card Balance</p>
-        <h2 className="balance-amount">${data.cardBalance.toFixed(2)}</h2>
-      </div>
+      <div className="cards-container">
+        <div className="left-cards">
+          <div className="card balance-card">
+            <p className="card-label">Card Balance</p>
+            <h2 className="card-value balance-value">${data.cardBalance.toFixed(2)}</h2>
+            <p className="available-text">$1,534.40 available</p>
+          </div>
 
-      <div className="wallet-info">
-        <div className="info-item">
-          <div className="info-icon points-icon">⭐</div>
-          <div className="info-content">
-            <p className="info-label">Daily Points</p>
-            <p className="info-value">{data.dailyPoints} pts</p>
+          <div className="card points-card">
+            <p className="card-label">Daily Points</p>
+            <h2 className="card-value points-value">{data.dailyPoints} pts</h2>
           </div>
         </div>
 
-        <div className="info-item">
-          <div className="info-icon payment-icon">✓</div>
-          <div className="info-content">
-            <p className="info-label">Payments</p>
-            <p className="info-value no-payments">
-              {data.paymentsDue ? 'Payments due' : 'No payments due'}
+        <div className="right-cards">
+          <div className="card payment-card">
+            <p className="card-label">
+              {data.paymentsDue ? 'Payment Due' : 'No Payment Due'}
             </p>
+            <p className="payment-description">
+              {data.paymentsDue ? 'You have pending payments' : "You've paid your September balance"}
+            </p>
+            <div className="payment-check-icon">✓</div>
           </div>
         </div>
       </div>
