@@ -29,7 +29,10 @@ function TransactionList({ transactions }: TransactionListProps) {
     return date.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
   };
 
-  const getCategoryIcon = () => {
+  const getCategoryIcon = (title: string) => {
+    if (title === 'IKEA') {
+      return <img src="/ikea.jpg" alt="IKEA" className="icon-img" />;
+    }
     return <img src="/apple.png" alt="Apple" className="icon-img" />;
   };
 
@@ -51,7 +54,7 @@ function TransactionList({ transactions }: TransactionListProps) {
             onClick={() => handleTransactionClick(transaction.id)}
           >
             <div className="transaction-icon">
-              {getCategoryIcon(transaction.category)}
+              {getCategoryIcon(transaction.title)}
             </div>
 
             <div className="transaction-details">

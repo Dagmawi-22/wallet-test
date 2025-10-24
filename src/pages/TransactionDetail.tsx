@@ -23,7 +23,10 @@ function TransactionDetail() {
     );
   }
 
-  const getCategoryIcon = () => {
+  const getCategoryIcon = (title: string) => {
+    if (title === 'IKEA') {
+      return <img src="/ikea.png" alt="IKEA" className="detail-icon-img" />;
+    }
     return <img src="/apple.png" alt="Apple" className="detail-icon-img" />;
   };
 
@@ -52,7 +55,7 @@ function TransactionDetail() {
       <div className="detail-content">
         <div className="detail-icon-section">
           <div className="detail-icon-large">
-            {getCategoryIcon(transaction.category)}
+            {getCategoryIcon(transaction.title)}
           </div>
           <h3 className="detail-merchant">{transaction.title}</h3>
           <p className="detail-category">{transaction.category}</p>
