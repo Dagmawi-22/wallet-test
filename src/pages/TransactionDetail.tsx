@@ -70,6 +70,31 @@ function TransactionDetail() {
             <span className="total-amount">${transaction.amount.toFixed(2)}</span>
           </div>
         </div>
+
+        <div className="additional-details">
+          <div className="detail-row">
+            <span className="detail-row-label">Payment Method</span>
+            <span className="detail-row-value">Apple Card</span>
+          </div>
+          <div className="detail-row">
+            <span className="detail-row-label">Category</span>
+            <span className="detail-row-value">{transaction.category}</span>
+          </div>
+          <div className="detail-row">
+            <span className="detail-row-label">Transaction ID</span>
+            <span className="detail-row-value">#{transaction.id}</span>
+          </div>
+          <div className="detail-row">
+            <span className="detail-row-label">Type</span>
+            <span className="detail-row-value">{transaction.type === 'credit' ? 'Credit' : 'Debit'}</span>
+          </div>
+          {transaction.description && (
+            <div className="detail-row description-row">
+              <span className="detail-row-label">Description</span>
+              <span className="detail-row-value">{transaction.description}</span>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

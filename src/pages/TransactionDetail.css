@@ -121,6 +121,48 @@
   font-weight: 600;
 }
 
+.additional-details {
+  background-color: var(--bg-secondary);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 24px;
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.detail-row:last-child {
+  border-bottom: none;
+}
+
+.detail-row.description-row {
+  flex-direction: column;
+  gap: 8px;
+}
+
+.detail-row-label {
+  font-size: 14px;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.detail-row-value {
+  font-size: 14px;
+  color: var(--text-primary);
+  font-weight: 500;
+  text-align: right;
+}
+
+.description-row .detail-row-value {
+  text-align: left;
+  line-height: 1.5;
+}
+
 .amount-label {
   font-size: 14px;
   color: var(--text-secondary);
