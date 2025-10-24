@@ -68,7 +68,3 @@ The daily points system follows a seasonal calculation:
 - Day 3+: 100% of (day-2) points + 60% of (day-1) points, rounded
 
 Points over 1000 are displayed in K format (e.g., 29K).
-
-## License
-
-MIT
